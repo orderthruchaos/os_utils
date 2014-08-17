@@ -14,11 +14,7 @@ defmodule OsUtils.Mixfile do
       package: [
         contributors: ["Brett DiFrischia"],
         licenses: ["Apache 2.0"],
-        links: [
-          {
-            "Github", @github
-          },
-        ],
+        links: %{ "Github" => @github },
       ],
       docs: [
         readme: true,
@@ -45,7 +41,7 @@ defmodule OsUtils.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:ex_doc, github: "elixir-lang/ex_doc", only: :docs}
+      {:ex_doc, github: "elixir-lang/ex_doc"}
     ]
   end
 end
