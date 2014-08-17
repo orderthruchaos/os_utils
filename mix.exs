@@ -41,7 +41,7 @@ defmodule OsUtils.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:ex_doc, github: "elixir-lang/ex_doc"}
+      {:ex_doc, "~> 0.5", only: :dev}
     ]
   end
 end
