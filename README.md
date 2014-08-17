@@ -1,4 +1,4 @@
-OsUtils
+OSUtils
 =======
 
-** TODO: Add description **
+OS utilities for Elixir.
