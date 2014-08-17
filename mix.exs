@@ -14,14 +14,18 @@ defmodule OsUtils.Mixfile do
       package: [
         contributors: ["Brett DiFrischia"],
         licenses: ["Apache 2.0"],
-        links: [ {"Github", @github} ]
+        links: [
+          {
+            "Github", @github
+          },
+        ],
       ],
       docs: [
         readme: true,
         main: "README",
         source_url: @github,
-        source_ref: @version
-      ]
+        source_ref: @version,
+      ],
     ]
   end
 
