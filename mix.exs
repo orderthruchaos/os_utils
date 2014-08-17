@@ -3,17 +3,15 @@ defmodule OsUtils.Mixfile do
 
   def project do
     [app: :os_utils,
-     version: "0.0.1",
-     elixir: "~> 0.15.1",
+     version: "0.1.0",
+     elixir: ">= 0.15.0",
      deps: deps]
   end
 
   # Configuration for the OTP application
   #
   # Type `mix help compile.app` for more information
-  def application do
-    [applications: [:logger]]
-  end
+  def application, do: []
 
   # Dependencies can be Hex packages:
   #
