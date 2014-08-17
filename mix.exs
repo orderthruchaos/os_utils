@@ -10,21 +10,18 @@ defmodule OsUtils.Mixfile do
       version: @version,
       elixir: ">= 0.15.0",
       deps: deps,
+      description: "OS utilities for Elixir.",
       package: [
         contributors: ["Brett DiFrischia"],
         licenses: ["Apache 2.0"],
-        links: [
-          {"Github", @github}
-        ]
+        links: [ {"Github", @github} ]
       ],
-      description: "OS utilities for Elixir."
-      # ,
-      # docs: [
-      #   readme: true,
-      #   main: "README",
-      #   source_url: @github,
-      #   source_ref: @version
-      # ]
+      docs: [
+        readme: true,
+        main: "README",
+        source_url: @github,
+        source_ref: @version
+      ]
     ]
   end
 
@@ -42,5 +39,9 @@ defmodule OsUtils.Mixfile do
   #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
   #
   # Type `mix help deps` for more examples and options
-  defp deps, do: []
+  defp deps do
+    [
+      {:ex_doc, github: "elixir-lang/ex_doc", only: :docs}
+    ]
+  end
 end
