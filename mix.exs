@@ -1,4 +1,4 @@
-defmodule OsUtils.Mixfile do
+defmodule OSUtils.Mixfile do
   use Mix.Project
 
   @version "0.1.1"
