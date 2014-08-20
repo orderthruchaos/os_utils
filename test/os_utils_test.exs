@@ -38,11 +38,30 @@ defmodule OSUtilsTest do
   end
 
   # TODO:  Test on system without symlink support.
-  test "has symlinks?" do
-    case :file.read_link(Path.expand(__ENV__.file)) do
-      {:error, :enotsup} -> refute OU.supports_symlinks?
-      _                  -> assert OU.supports_symlinks?
-    end
+  @tag :no_symlinks
+  test "has symlinks? (no)" do
+    refute OU.supports_symlinks?
   end
 
+
+  @tag :has_symlinks
+  test "has symlinks? (yes)" do
+    assert OU.supports_symlinks?
+  end
+
+  @tag :no_symlinks
+  test "maxsymlinks output (no symlinks)" do
+    assert 0 == OU.maxsymlinks()
+  end
+
+  @tag :has_symlinks
+  test "maxsymlinks output (has symlinks)" do
+    expected = case OU.os_id do
+      :win32 -> 31
+      _      -> 64
+    end
+
+    assert expected == OU.maxsymlinks()
+  end
+  
 end

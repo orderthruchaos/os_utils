@@ -55,4 +55,42 @@ defmodule OSUtils do
     end
   end
 
+  @doc """
+  The maximum number of symlinks allowed to be followed in the resolution
+  of a given path.
+
+  In order to provide portable BEAM files, this limit is approximated.  For
+  Windows based systems which support symbolic links, this is always 31.
+  Otherwise, 64 was chosen as double the largest known value (32 on Darwin)
+  to allow for error.
+
+  On systems which do not support symbolic links, this function will always
+  return 0.
+  """
+  def maxsymlinks() do
+    # Windows is known to allow 31 reparse points:
+    #   http://msdn.microsoft.com/en-us/library/aa365460.aspx
+    #
+    # Unix limit should be obtained via:
+    #   - limits.h:     SYMLINK_MAX    Cygwin
+    #   - sys/param.h:  MAXSYMLINKS    Solaris
+    # At this time, the largest value I have found is 32 (darwin).  Setting
+    # it to 64 should leave space for error.
+    #
+    # See canon_path/doc/symloop_max.c for example C program for determining
+    # this value.
+    #
+    # Unfortunately, doing this at compile time would prevent generated BEAM
+    # files from being portable.
+
+    if OSUtils.supports_symlinks? do
+      case OSUtils.os_id do
+        :win32 -> 31
+        _      -> 64
+      end
+    else
+      0
+    end
+  end
+
 end
