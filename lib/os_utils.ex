@@ -60,7 +60,7 @@ defmodule OSUtils do
   of a given path.
 
   In order to provide portable BEAM files, this limit is approximated.  For
-  Windows based systems which support symbolic links, this is always 31.
+  Windows based systems which support symbolic links, this is always 63.
   Otherwise, 64 was chosen as double the largest known value (32 on Darwin)
   to allow for error.
 
@@ -68,8 +68,8 @@ defmodule OSUtils do
   return 0.
   """
   def maxsymlinks() do
-    # Windows is known to allow 31 reparse points:
-    #   http://msdn.microsoft.com/en-us/library/aa365460.aspx
+    # Windows is known to allow 63 reparse points:
+    #   https://msdn.microsoft.com/en-us/library/windows/desktop/aa365503%28v=vs.85%29.aspx
     #
     # Unix limit should be obtained via:
     #   - limits.h:     SYMLINK_MAX    Cygwin
@@ -85,7 +85,7 @@ defmodule OSUtils do
 
     if OSUtils.supports_symlinks? do
       case OSUtils.os_id do
-        :win32 -> 31
+        :win32 -> 63
         _      -> 64
       end
     else

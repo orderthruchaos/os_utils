@@ -57,7 +57,7 @@ defmodule OSUtilsTest do
   @tag :has_symlinks
   test "maxsymlinks output (has symlinks)" do
     expected = case OU.os_id do
-      :win32 -> 31
+      :win32 -> 63
       _      -> 64
     end
 
