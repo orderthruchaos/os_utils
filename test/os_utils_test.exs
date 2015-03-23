@@ -37,6 +37,14 @@ defmodule OSUtilsTest do
     assert name == OU.os_name
   end
 
+  # Note:  needs tested on OSE.
+  test "Path separator" do
+    case :os.type do
+      {:win32, _} -> assert ";" == OU.path_separator
+      _           -> assert ":" == OU.path_separator
+    end
+  end
+
   # TODO:  Test on system without symlink support.
   @tag :no_symlinks
   test "has symlinks? (no)" do

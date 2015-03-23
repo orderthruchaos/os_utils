@@ -1,14 +1,14 @@
 defmodule OSUtils.Mixfile do
   use Mix.Project
 
-  @version "0.1.3"
+  @version "0.2.0"
   @github  "https://github.com/orderthruchaos/os_utils"
 
   def project do
     [
       app: :os_utils,
       version: @version,
-      elixir: ">= 0.15.0",
+      elixir: ">= 1.0.0",
       deps: deps,
       description: "OS utilities for Elixir.",
       package: [

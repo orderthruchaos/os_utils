@@ -45,6 +45,16 @@ defmodule OSUtils do
   def os_name, do: :os.type |> elem 1
 
 
+  # Note: This may need corrected for OSE.
+  @doc """
+  Returns the character used to separate entries within the PATH/Path
+  environment variable
+  """
+  def path_separator, do: _path_separator(:os.type)
+  defp _path_separator({:win32, _}), do: ";"
+  defp _path_separator(_          ), do: ":"
+
+
   @doc """
   Returns true if the OS supports symlinks.  False otherwise.
   """
