@@ -3,12 +3,11 @@ has_symlinks = case :file.read_link(Path.expand(__ENV__.file)) do
   _                  -> true
 end
 
+{ incl_symlinks_str, tags_to_exclude } =
 if has_symlinks do
-  incl_symlinks_str = "has_symlinks"
-  tags_to_exclude = [:todo, :os, :os_sym, :no_symlinks]
+  { "has_symlinks", [:todo, :os, :os_sym, :no_symlinks] }
 else
-  incl_symlinks_str = "no_symlinks"
-  tags_to_exclude = [:todo, :os, :os_sym, :has_symlinks]
+  { "no_symlinks", [:todo, :os, :os_sym, :has_symlinks] }
 end
 
 { this_os, _ } = :os.type

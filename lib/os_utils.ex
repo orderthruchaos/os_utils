@@ -34,7 +34,7 @@ defmodule OSUtils do
   @doc """
   Return the ID portion of the tuple returned by `:os.type()`.
   """
-  def os_id, do: :os.type |> elem 0
+  def os_id, do: :os.type |> elem(0)
 
 
   @doc """
@@ -42,7 +42,7 @@ defmodule OSUtils do
 
   Not generally useful, but here for completeness.
   """
-  def os_name, do: :os.type |> elem 1
+  def os_name, do: :os.type |> elem(1)
 
 
   # Note: This may need corrected for OSE.
