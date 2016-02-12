@@ -87,7 +87,7 @@ defmodule OSUtils do
     # At this time, the largest value I have found is 32 (darwin).  Setting
     # it to 64 should leave space for error.
     #
-    # See canon_path/doc/symloop_max.c for example C program for determining
+    # See os_utils/doc/symloop_max.c for example C program for determining
     # this value.
     #
     # Unfortunately, doing this at compile time would prevent generated BEAM
