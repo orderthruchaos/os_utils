@@ -12,7 +12,7 @@ defmodule OSUtils.Mixfile do
       deps: deps,
       description: "OS utilities for Elixir.",
       package: [
-        contributors: ["Brett DiFrischia"],
+        maintainers: ["Brett DiFrischia"],
         licenses: ["Apache 2.0"],
         links: %{ "Github" => @github },
       ],
@@ -29,7 +29,7 @@ defmodule OSUtils.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.5", only: :dev}
+      {:ex_doc, "~> 0.11.4", only: :dev}
     ]
   end
 end
